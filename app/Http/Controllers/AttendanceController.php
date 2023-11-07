@@ -17,8 +17,8 @@ class AttendanceController extends Controller
         return "upload employee page";
     }
     
-    public function uploadAttendance(){
-        return 'upload attendance page';
+    public function uploadAttendance(Request $request){
+        dd($request);
     }
 
     public function uploadLocation(){
@@ -37,15 +37,4 @@ class AttendanceController extends Controller
         return 'upload shift page';
     }
 
-    public function import(){
-        return view('import');
-    }
-
-    public function importPost(Request $request){
-        // dd($request->files);
-        Excel::import(new UsersImport, request()->file('file'));
-        
-        return redirect('/')->with('success', 'All good!');
-
-    }
 }
