@@ -21,7 +21,10 @@ class Attendance extends Model
     public function totalWorkingHours()
     {
         if ($this->check_in && $this->check_out) {
-            return $this->check_in->diffInHours($this->check_out);
+            $interval = $this->check_in->diff($this->check_out);
+            $totalHours = $interval->days * 24 + $interval->h + ($interval->i / 60);
+            
+            return $totalHours;
         }
 
         return null;

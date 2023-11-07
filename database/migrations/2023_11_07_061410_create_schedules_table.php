@@ -14,12 +14,19 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('location_id');
+            $table->unsignedBigInteger('shift_id');
             $table->date('date');
             $table->time('start_time');
             $table->time('end_time');
             $table->timestamps();
 
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete
+            ('cascade');
+
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
+            
+            $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
 
         });
     }
