@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Imports\UsersImport;
+use App\Imports\AttendanceImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
@@ -18,7 +18,9 @@ class AttendanceController extends Controller
     }
     
     public function uploadAttendance(Request $request){
-        dd($request);
+        // dd($request);
+        $file = $request->file('file');
+        Excel::import(new AttendanceImport, $file);
     }
 
     public function uploadLocation(){

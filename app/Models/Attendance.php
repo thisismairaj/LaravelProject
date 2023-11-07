@@ -9,37 +9,17 @@ use App\Models\Employee;
 class Attendance extends Model
 {
     use HasFactory;
-    protected $fillable = ['employee_id', 'date', 'is_present', 'check_in', 'check_out', 'working_hours'];
+    protected $fillable = ['employee_id', 'date', 'is_present', 'check_in', 'check_out', 'working_hours', 'schedule_id'];
 
     protected $dates = ['check_in', 'check_out'];
 
     public function employee()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class, 'employee_id', 'id');
     }
 
-    public function totalWorkingHours()
+    public function schedule()
     {
-        if ($this->check_in && $this->check_out) {
-            $interval = $this->check_in->diff($this->check_out);
-            $totalHours = $interval->days * 24 + $interval->h + ($interval->i / 60);
-            
-            return $totalHours;
-        }
-
-        return null;
+        return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
     }
-
-    public function setCheckInAttribute($value)
-    {
-        $this->attributes['check_in'] = $value;
-        $this->attributes['working_hours'] = $this->totalWorkingHours();
-    }
-
-    public function setCheckOutAttribute($value)
-    {
-        $this->attributes['check_out'] = $value;
-        $this->attributes['working_hours'] = $this->totalWorkingHours();
-    }
-
 }

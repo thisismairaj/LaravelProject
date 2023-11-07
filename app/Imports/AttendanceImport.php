@@ -3,24 +3,28 @@
 namespace App\Imports;
 
 use App\Models\Attendance;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class AttendanceImport implements ToModel
+class AttendanceImport implements ToCollection,WithHeadingRow
 {
-    /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
-    public function model(array $row)
+    public function collection(Collection $rows)
     {
-        return new Attendance([
-           'employee_id'     => $row[0],
-           'date'    => $row[1], 
-           'is_present' => $row[2],
-           'check_in' => $row[3],
-           'check_out' => $row[4],
-           'working_hours' => $row[5],
-        ]);
+        foreach ($rows as $row) 
+        {
+            Attendance::create([
+                'employee_id'  => $row['employee_id'],
+                'is_present'  => $row['is_present'],
+                'date' => $row['date'],
+                'check_in' => date('Y-m-d H:i:s', strtotime($row['check_in'])),
+                'check_out' => date('Y-m-d H:i:s', strtotime($row['check_out'])),
+                'working_hours' => $row['working_hours'],
+                'created_at' => date('Y-m-d H:i:s', strtotime($row['created_at'])),
+                'updated_at' => date('Y-m-d H:i:s', strtotime($row['updated_at'])),
+            ]);
+        }
     }
+
 }

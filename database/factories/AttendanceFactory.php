@@ -22,6 +22,7 @@ class AttendanceFactory extends Factory
             'check_out' => $this->faker->dateTimeBetween('now', '+1 month'),
             'working_hours' => $this->faker->randomFloat(2, 4, 12),
             'employee_id' => Employee::factory(),
+            'schedule_id' => Schedule::factory(),
         ];
     }
 }
