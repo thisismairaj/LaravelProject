@@ -42,8 +42,8 @@ class AttendanceController extends Controller
     }
 
     public function importPost(Request $request){
-        dd($request->files);
-        Excel::import(new UsersImport, 'users.xlsx');
+        // dd($request->files);
+        Excel::import(new UsersImport, request()->file('file'));
         
         return redirect('/')->with('success', 'All good!');
 
