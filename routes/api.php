@@ -26,3 +26,6 @@ Route::post('/upload-attendance-fault', [AttendanceController::class,
 'uploadAttendanceFault']);
 Route::post('/upload-schedule', [AttendanceController::class, 'uploadSchedule']);
 Route::post('/upload-shift', [AttendanceController::class, 'uploadShift']);
+
+Route::get('/import', [AttendanceController::class, 'import']);
+Route::post('/import', [AttendanceController::class, 'importPost']);

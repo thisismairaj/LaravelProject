@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class AttendanceController extends Controller
 {
     public function show(){
@@ -32,5 +35,17 @@ class AttendanceController extends Controller
 
     public function uploadShift(){
         return 'upload shift page';
+    }
+
+    public function import(){
+        return view('import');
+    }
+
+    public function importPost(Request $request){
+        dd($request->files);
+        Excel::import(new UsersImport, 'users.xlsx');
+        
+        return redirect('/')->with('success', 'All good!');
+
     }
 }
