@@ -15,15 +15,13 @@ class LocationImport implements ToCollection,WithHeadingRow
         foreach ($rows as $row) 
         {
             Location::create([
-                'employee_id'  => $row['employee_id'],
-                'schedule_id'  => $row['schedule_id'],
-                'is_present'  => $row['is_present'],
-                'date' => $row['date'],
-                'check_in' => date('Y-m-d H:i:s', strtotime($row['check_in'])),
-                'check_out' => date('Y-m-d H:i:s', strtotime($row['check_out'])),
-                'working_hours' => $row['working_hours'],
-                'created_at' => date('Y-m-d H:i:s', strtotime($row['created_at'])),
-                'updated_at' => date('Y-m-d H:i:s', strtotime($row['updated_at'])),
+                'id'  => $row['id'],
+                'address' => $row['address'],
+                'city' => $row['city'],
+                'postal_code' => $row['postal_code'],
+                'state' => $row['state'],
+                'country' => $row['country'],
+                'schedule_id' => $row['schedule_id']
             ]);
         }
     }

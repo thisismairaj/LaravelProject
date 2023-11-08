@@ -10,7 +10,7 @@ use App\Models\Location;
 class Location extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'address', 'city', 'state', 'postal_code'];
+    protected $fillable = ['schedule_id','address', 'city', 'state','country', 'postal_code'];
 
     public function company(){
         return $this->hasMany(Company::class);
