@@ -9,7 +9,7 @@ use App\Models\Employee;
 class Attendance extends Model
 {
     use HasFactory;
-    protected $fillable = ['employee_id', 'date', 'is_present', 'check_in', 'check_out', 'working_hours', 'schedule_id'];
+    protected $fillable = [];
 
     protected $dates = ['check_in', 'check_out'];
 
@@ -19,6 +19,10 @@ class Attendance extends Model
 
     public function schedules(){
         return $this->hasMany(Schedule::class);
+    }
+
+    public function attendance(){
+        return $this->belongsTo(AttendanceFault::class);
     }
 
 }

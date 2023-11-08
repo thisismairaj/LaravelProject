@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('attendance_id');
+            $table->unsignedBigInteger('employee_id');
             
         });
     }
