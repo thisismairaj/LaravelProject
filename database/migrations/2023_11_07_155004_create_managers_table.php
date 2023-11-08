@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
+            $table->string('department');
+            $table->unsignedBigInteger('people_id');
             $table->timestamps();
         });
     }

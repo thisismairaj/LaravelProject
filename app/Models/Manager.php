@@ -4,18 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Schedule;
-use App\Models\People;
 
-class Employee extends Model
+class Manager extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title'];
-
-    public function schedules() {
-        return $this->hasMany(Schedule::class);
-    }
+    protected $fillable = ['department'];
 
     public function people(){
         return $this->belongsTo(People::class);
