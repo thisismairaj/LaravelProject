@@ -11,7 +11,7 @@ class AttendanceFault extends Model
 {
     use HasFactory;
  
-    protected $fillable = ['type', 'date', 'description'];
+    protected $fillable = ['type', 'date', 'description', 'employee_id', 'attendance_id'];
 
     public function employees(){
         return $this->hasMany(Employee::class);

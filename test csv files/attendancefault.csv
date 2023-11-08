@@ -1,0 +1,6 @@
+attendance_id,employee_id,type,date,description
+1,1001,Late Arrival,2023-11-08,"Arrived 10 minutes late"
+2,1002,Absence,2023-11-09,"Employee was not present"
+3,1003,Early Departure,2023-11-10,"Left 30 minutes early"
+4,1004,Late Arrival,2023-11-11,"Arrived 15 minutes late"
+5,1005,Unscheduled Break,2023-11-12,"Took an unscheduled break"

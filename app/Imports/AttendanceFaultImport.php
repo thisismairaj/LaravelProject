@@ -16,14 +16,10 @@ class AttendanceFaultImport implements ToCollection,WithHeadingRow
         {
             AttendanceFault::create([
                 'employee_id'  => $row['employee_id'],
-                'schedule_id'  => $row['schedule_id'],
-                'is_present'  => $row['is_present'],
+                'attendance_id'  => $row['attendance_id'],
+                'type'  => $row['type'],
                 'date' => $row['date'],
-                'check_in' => date('Y-m-d H:i:s', strtotime($row['check_in'])),
-                'check_out' => date('Y-m-d H:i:s', strtotime($row['check_out'])),
-                'working_hours' => $row['working_hours'],
-                'created_at' => date('Y-m-d H:i:s', strtotime($row['created_at'])),
-                'updated_at' => date('Y-m-d H:i:s', strtotime($row['updated_at'])),
+                'description' => $row['description']
             ]);
         }
     }
