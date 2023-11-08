@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('attendance_faults', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->unsignedBigInteger('attendance_id');
             $table->unsignedBigInteger('employee_id');
+            $table->unsignedBigInteger('attendance_id');
+            $table->string('type');
+            $table->date('date')->default(now());
+            $table->text('description')->nullable();
+            $table->timestamps();
             
         });
     }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Asset extends Model
 {
     use HasFactory;
+    protected $fillable = ['asset_name'];
     
     public function company(){
         return $this->hasMany(Company::class);
