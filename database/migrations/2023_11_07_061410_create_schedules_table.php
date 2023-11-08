@@ -21,13 +21,6 @@ return new class extends Migration
             $table->time('end_time');
             $table->timestamps();
 
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete
-            ('cascade');
-
-            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
-            
-            $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
-
         });
     }
 

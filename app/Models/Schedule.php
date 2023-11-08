@@ -14,22 +14,4 @@ class Schedule extends Model
     use HasFactory;
     protected $fillable = ['employee_id', 'location_id', 'shift_id', 'date', 'start_time', 'end_time'];
 
-    public function employee()
-    {
-        return $this->belongsTo(Employee::class,'employee_id', 'id');
-    }
-    
-    public function shift()
-    {
-        return $this->belongsTo(Shift::class, 'shift_id', 'id');
-    }
-
-    public function location()
-    {
-        return $this->belongsTo(Location::class, 'location_id', 'id');
-    }
-
-    public function attendances() {
-        return $this->hasMany(Attendance::class);
-    }
 }

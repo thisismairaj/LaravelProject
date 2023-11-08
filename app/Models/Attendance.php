@@ -13,13 +13,4 @@ class Attendance extends Model
 
     protected $dates = ['check_in', 'check_out'];
 
-    public function employee()
-    {
-        return $this->belongsTo(Employee::class, 'employee_id', 'id');
-    }
-
-    public function schedule()
-    {
-        return $this->belongsTo(Schedule::class, 'schedule_id', 'id');
-    }
 }
