@@ -1,4 +1,6 @@
-id,title,schedule_id,attendance_id,people_id
-1,Mairaj,1,2,1
-2,Sajid,2,6,2
-3,Mark,3,1,3
+title,schedule_id,attendance_id,people_id
+Meeting 1,1001,2001,3001
+Conference Call,1002,2002,3002
+Workshop,1003,2003,3003
+Seminar,1004,2004,3004
+Training Session,1005,2005,3005

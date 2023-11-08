@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Shift extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'start_time', 'end_time'];
+    protected $fillable = ['shift_name', 'start_time', 'end_time', 'schedule_id'];
 
 }

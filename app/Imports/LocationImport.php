@@ -15,7 +15,6 @@ class LocationImport implements ToCollection,WithHeadingRow
         foreach ($rows as $row) 
         {
             Location::create([
-                'id'  => $row['id'],
                 'address' => $row['address'],
                 'city' => $row['city'],
                 'postal_code' => $row['postal_code'],

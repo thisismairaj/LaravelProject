@@ -1,0 +1,6 @@
+shift_name,start_time,end_time,schedule_id
+Morning Shift,08:00:00,12:00:00,1001
+Afternoon Shift,13:00:00,17:00:00,1002
+Evening Shift,18:00:00,22:00:00,1003
+Night Shift,22:00:00,02:00:00,1004
+Weekend Shift,09:00:00,18:00:00,1005

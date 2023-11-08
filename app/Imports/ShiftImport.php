@@ -15,15 +15,10 @@ class ShiftImport implements ToCollection,WithHeadingRow
         foreach ($rows as $row) 
         {
             Shift::create([
-                'employee_id'  => $row['employee_id'],
+                'shift_name'  => $row['shift_name'],
+                'start_time'  => $row['start_time'],
+                'end_time'  => $row['end_time'],
                 'schedule_id'  => $row['schedule_id'],
-                'is_present'  => $row['is_present'],
-                'date' => $row['date'],
-                'check_in' => date('Y-m-d H:i:s', strtotime($row['check_in'])),
-                'check_out' => date('Y-m-d H:i:s', strtotime($row['check_out'])),
-                'working_hours' => $row['working_hours'],
-                'created_at' => date('Y-m-d H:i:s', strtotime($row['created_at'])),
-                'updated_at' => date('Y-m-d H:i:s', strtotime($row['updated_at'])),
             ]);
         }
     }

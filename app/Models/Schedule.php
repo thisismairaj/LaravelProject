@@ -12,7 +12,7 @@ use App\Models\Attendance;
 class Schedule extends Model
 {
     use HasFactory;
-    protected $fillable = [];
+    protected $fillable = ['date', 'start_time', 'end_time'];
 
     public function employees(){
         return $this->hasMany(Employee::class);

@@ -1,6 +1,6 @@
-id,schedule_id,address,city,state,postal_code,country
-1,1001,123 Main St,New York,NY,10001,USA
-2,1002,456 Elm St,Los Angeles,CA,90001,USA
-3,1003,789 Oak St,Chicago,IL,60601,USA
-4,1004,101 Pine St,San Francisco,CA,94101,USA
-5,1005,202 Maple St,Miami,FL,33101,USA
+schedule_id,address,city,state,postal_code,country
+1001,123 Main St,New York,NY,10001,USA
+1002,456 Elm St,Los Angeles,CA,90001,USA
+1003,789 Oak St,Chicago,IL,60601,USA
+1004,101 Pine St,San Francisco,CA,94101,USA
+1005,202 Maple St,Miami,FL,33101,USA

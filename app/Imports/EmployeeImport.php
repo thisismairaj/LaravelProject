@@ -15,7 +15,6 @@ class EmployeeImport implements ToCollection,WithHeadingRow
         foreach ($rows as $row) 
         {
             Employee::create([
-                'id'  => $row['id'],
                 'schedule_id'  => $row['schedule_id'],
                 'attendance_id'  => $row['attendance_id'],
                 'people_id'  => $row['people_id'],
