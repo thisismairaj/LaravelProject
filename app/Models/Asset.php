@@ -5,18 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Manager extends Model
+class Asset extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['department'];
-
-    public function people(){
-        return $this->belongsTo(People::class);
-    }
-
+    
     public function company(){
         return $this->hasMany(Company::class);
     }
-
 }
