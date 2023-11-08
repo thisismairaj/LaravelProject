@@ -1,8 +1,14 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+
 use Illuminate\Http\Request;
+
+use App\Models\Attendance;
+use App\Models\Employee;
 
 use App\Imports\AttendanceImport;
 use App\Imports\EmployeeImport;
@@ -52,4 +58,18 @@ class AttendanceController extends Controller
         Excel::import(new ShiftImport, $file);
     }
 
+    public function getAttendance($id){
+        $attendances = Attendance::where('employee_id', $id)->get();
+        $employee = Employee::find($id);
+        $people = $employee->people;
+        $totalWorkingHours = $attendances->sum('working_hours');
+        
+        return response()->json([
+            'employee' => $employee,
+            'attendance' => $attendances,
+            'people' => $people,
+            'totalWorkingHours' => $totalWorkingHours,
+        ]);
+
+    }
 }

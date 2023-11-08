@@ -28,4 +28,6 @@ Route::post('/upload-attendance-fault', [AttendanceController::class,
 Route::post('/upload-schedule', [AttendanceController::class, 'uploadSchedule']);
 Route::post('/upload-shift', [AttendanceController::class, 'uploadShift']);
 
+Route::get('/get-attendance/{id}', [AttendanceController::class, 'getAttendance']);
+
 Route::post('/find-duplicates', [DuplicateController::class, 'findDuplicates']);
