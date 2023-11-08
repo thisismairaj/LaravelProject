@@ -9,12 +9,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
 {
-    public function show(){
-        return view('what');
-    }
 
     public function uploadEmployee(){
-        return "upload employee page";
+        // dd($request);
+        $file = $request->file('file');
+        Excel::import(new EmployeeImport, $file);
     }
     
     public function uploadAttendance(Request $request){
@@ -24,19 +23,27 @@ class AttendanceController extends Controller
     }
 
     public function uploadLocation(){
-        return 'upload location page';
+        // dd($request);
+        $file = $request->file('file');
+        Excel::import(new LocationImport, $file);
     }
 
     public function uploadAttendanceFault(){
-        return 'upload attendance fault page';
+        // dd($request);
+        $file = $request->file('file');
+        Excel::import(new AttendanceFaultImport, $file);
     }
 
     public function uploadSchedule(){
-        return 'upload schedule page';
+        // dd($request);
+        $file = $request->file('file');
+        Excel::import(new ScheduleImport, $file);
     }
 
     public function uploadShift(){
-        return 'upload shift page';
+        // dd($request);
+        $file = $request->file('file');
+        Excel::import(new ShiftImport, $file);
     }
 
 }

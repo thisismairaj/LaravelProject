@@ -9,7 +9,7 @@ use App\Models\Employee;
 class Attendance extends Model
 {
     use HasFactory;
-    protected $fillable = ['check_in', 'check_out', 'working_hours'];
+    protected $fillable = ['employee_id', 'schedule_id','check_in', 'check_out', 'working_hours'];
 
     protected $dates = ['check_in', 'check_out'];
 

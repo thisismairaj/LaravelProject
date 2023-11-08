@@ -2,19 +2,19 @@
 
 namespace App\Imports;
 
-use App\Models\Attendance;
+use App\Models\Location;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class AttendanceImport implements ToCollection,WithHeadingRow
+class LocationImport implements ToCollection,WithHeadingRow
 {
     public function collection(Collection $rows)
     {
         foreach ($rows as $row) 
         {
-            Attendance::create([
+            Location::create([
                 'employee_id'  => $row['employee_id'],
                 'schedule_id'  => $row['schedule_id'],
                 'is_present'  => $row['is_present'],
