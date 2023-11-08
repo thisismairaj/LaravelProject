@@ -14,7 +14,7 @@ class Employee extends Model
     protected $fillable = ['title'];
 
     public function schedules() {
-        return $this->hasMany(Schedule::class);
+        return $this->belongsTo(Schedule::class);
     }
 
     public function people(){

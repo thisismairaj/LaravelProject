@@ -13,4 +13,12 @@ class Attendance extends Model
 
     protected $dates = ['check_in', 'check_out'];
 
+    public function employees(){
+        return $this->hasMany(Employee::class);
+    }
+
+    public function schedules(){
+        return $this->hasMany(Schedule::class);
+    }
+
 }
