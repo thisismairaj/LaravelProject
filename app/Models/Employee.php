@@ -13,7 +13,7 @@ class Employee extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title'];
+    protected $fillable = ['title','schedule_id', 'employee_id', 'attendance_id', 'people_id'];
 
     public function schedules() {
         return $this->belongsTo(Schedule::class);

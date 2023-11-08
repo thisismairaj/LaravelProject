@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Imports\AttendanceImport;
+use App\Imports\EmployeeImport;
+use App\Imports\LocationImport;
+use App\Imports\ScheduleImport;
+use App\Imports\ShiftImport;
+use App\Imports\AttendanceFaultImport;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
 {
 
-    public function uploadEmployee(){
+    public function uploadEmployee(Request $request){
         // dd($request);
         $file = $request->file('file');
         Excel::import(new EmployeeImport, $file);
@@ -22,25 +28,25 @@ class AttendanceController extends Controller
         Excel::import(new AttendanceImport, $file);
     }
 
-    public function uploadLocation(){
+    public function uploadLocation(Request $request){
         // dd($request);
         $file = $request->file('file');
         Excel::import(new LocationImport, $file);
     }
 
-    public function uploadAttendanceFault(){
+    public function uploadAttendanceFault(Request $request){
         // dd($request);
         $file = $request->file('file');
         Excel::import(new AttendanceFaultImport, $file);
     }
 
-    public function uploadSchedule(){
+    public function uploadSchedule(Request $request){
         // dd($request);
         $file = $request->file('file');
         Excel::import(new ScheduleImport, $file);
     }
 
-    public function uploadShift(){
+    public function uploadShift(Request $request){
         // dd($request);
         $file = $request->file('file');
         Excel::import(new ShiftImport, $file);
