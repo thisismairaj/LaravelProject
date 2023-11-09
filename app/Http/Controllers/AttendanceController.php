@@ -61,14 +61,13 @@ class AttendanceController extends Controller
     public function getAttendance($id){
         $attendances = Attendance::where('employee_id', $id)->get();
         $employee = Employee::find($id);
-        $people = $employee->people;
         $totalWorkingHours = $attendances->sum('working_hours');
-        
-        return response()->json([
+
+        return Inertia::render('Show',[
             'employee' => $employee,
-            'attendance' => $attendances,
-            'people' => $people,
             'totalWorkingHours' => $totalWorkingHours,
+            'attendances' => $attendances,
+            'name' => "Mairaj Pirzada"
         ]);
 
     }
