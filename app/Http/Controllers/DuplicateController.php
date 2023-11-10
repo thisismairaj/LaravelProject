@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DuplicateController extends Controller
 {
-    public function findDuplicates(Request $request){
+    public function findDuplicates(){
         $arr = json_decode(array(request()->input('data'))[0]);
 
         $elementCounts = array();
